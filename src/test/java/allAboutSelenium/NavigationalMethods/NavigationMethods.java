@@ -1,5 +1,6 @@
+package allAboutSelenium.NavigationalMethods;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;

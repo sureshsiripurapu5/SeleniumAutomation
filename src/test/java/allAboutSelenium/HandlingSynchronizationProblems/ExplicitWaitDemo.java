@@ -33,7 +33,13 @@ public class ExplicitWaitDemo {
        username.sendKeys("Admin");
         //driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
 
-        driver.quit();
+       WebElement password= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='password']")));
+       password.sendKeys("admin123");
+
+      WebElement button= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
+      button.click();
+
+      driver.quit();
 
     }
 }
