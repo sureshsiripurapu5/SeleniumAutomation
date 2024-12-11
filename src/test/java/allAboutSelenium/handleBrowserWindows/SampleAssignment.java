@@ -1,3 +1,5 @@
+package allAboutSelenium.handleBrowserWindows;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +20,8 @@ public class SampleAssignment {
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://testautomationpractice.blogspot.com/");
+        driver.manage().window().maximize();
+
 
      WebElement searchBox=   driver.findElement(By.xpath("//input[@class='wikipedia-search-input']"));
      searchBox.sendKeys("selenium");
