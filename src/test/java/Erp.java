@@ -21,9 +21,9 @@ public class Erp {
 
         driver.get("https://lms.kluniversity.in/login/index.php");
         driver.manage().window().maximize();
-        driver.findElement(By.xpath("//input[@id='username']")).sendKeys("2301050155");
+        driver.findElement(By.xpath("//input[@id='username']")).sendKeys("23");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Suresh@123");
+        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("xyz");
         Thread.sleep(1000);
         driver.findElement(By.xpath("//button[text()='Log in']")).click();
 
