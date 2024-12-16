@@ -23,7 +23,7 @@ public class Erp {
         driver.manage().window().maximize();
         driver.findElement(By.xpath("//input[@id='username']")).sendKeys("23");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("xyz");
+        driver.findElement(By.xpath("//input[@id='password']")).sendKeys("Su");
         Thread.sleep(1000);
         driver.findElement(By.xpath("//button[text()='Log in']")).click();
 
