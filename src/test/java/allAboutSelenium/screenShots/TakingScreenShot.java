@@ -67,7 +67,7 @@ public class TakingScreenShot {
         driver.get("https://www.flipkart.com/");
         driver.manage().window().maximize();
 
-        WebElement flipkartImg=driver.findElement(By.xpath("//img[@title='Flipkart']"));
+        WebElement flipkartImg=driver.findElement(By.xpath("//img[@title='allAboutSelenium.practice.Flipkart']"));
 
         File sourceFile=flipkartImg.getScreenshotAs(OutputType.FILE);
         File targetFile=new File(System.getProperty("user.dir")+"\\ScreenShots\\flipkartLogo.png");
