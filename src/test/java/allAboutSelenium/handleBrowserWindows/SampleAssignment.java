@@ -46,7 +46,7 @@ public class SampleAssignment {
            }
          }
 
-
+     driver.quit();
 
 
 

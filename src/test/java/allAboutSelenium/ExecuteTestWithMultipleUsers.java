@@ -22,9 +22,11 @@ public class ExecuteTestWithMultipleUsers {
     @BeforeTest
     public void initilization(){
         driver=new EdgeDriver();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         wait=new WebDriverWait(driver,Duration.ofSeconds(10));
         driver.get("https://www.saucedemo.com/");
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+
         driver.manage().window().maximize();
 
     }
