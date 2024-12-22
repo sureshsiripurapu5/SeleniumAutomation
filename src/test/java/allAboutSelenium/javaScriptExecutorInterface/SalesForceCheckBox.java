@@ -1,9 +1,6 @@
 package allAboutSelenium.javaScriptExecutorInterface;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
@@ -36,6 +33,28 @@ public class SalesForceCheckBox {
         String arguments = "arguments[0].click()";
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript(arguments, agreementCheckBox1);
+    }
+
+    @Test
+    public void staleElementReferenceException(){
+        driver=new EdgeDriver();
+        driver.get("https://testautomationpractice.blogspot.com/");
+
+        WebElement nameBox=driver.findElement(By.xpath("//input[@id='name']"));
+        nameBox.sendKeys("selenium");
+
+        driver.navigate().refresh();
+
+        try{
+            nameBox.sendKeys("selenium");
+
+        }
+        catch (StaleElementReferenceException ste){
+            driver.findElement(By.xpath("//input[@id='name']")).sendKeys("selenium");
+        }
+
+
+
     }
 
 }
