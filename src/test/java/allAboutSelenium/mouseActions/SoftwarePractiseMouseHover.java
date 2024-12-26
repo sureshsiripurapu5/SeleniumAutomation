@@ -16,7 +16,7 @@ public class SoftwarePractiseMouseHover {
     @Test
     public void handlingMouseHower(){
         driver=new EdgeDriver();
-        driver.get("https://thesoftwarepractice.com/industries/");
+        driver.get("https://thesoftwarepractice.com/");
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
@@ -26,6 +26,7 @@ public class SoftwarePractiseMouseHover {
 
         Actions actions=new Actions(driver);
 
-        actions.moveToElement(industries).moveToElement(transport).click().build().perform();
+        actions.moveToElement(industries).perform();
+        actions.moveToElement(transport).click().perform();
     }
 }
