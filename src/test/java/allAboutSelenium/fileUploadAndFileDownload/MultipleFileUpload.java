@@ -15,8 +15,8 @@ public class MultipleFileUpload {
         driver.get("https://testautomationpractice.blogspot.com/");
         driver.manage().window().maximize();
 
-        String file1="C:\\Users\\Suresh Siripurapu\\java\\ClassNameAndFileNameDifferent.java";
-        String  file2="C:\\Users\\Suresh Siripurapu\\java\\CommandLineArguments.java";
+        String file1=System.getProperty("user.dir")+"\\uploadFiles\\ClassNameAndFileNameDifferent.java";
+        String  file2=System.getProperty("user.dir")+"\\uploadFiles\\CommandLineArguments.java";
 
         WebElement multipleFiles=driver.findElement(By.xpath("//form[@id='multipleFilesForm']/input[@id='multipleFilesInput']"));
         multipleFiles.sendKeys(file1+"\n"+file2);
