@@ -1,9 +1,6 @@
 package allAboutSelenium;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
@@ -43,6 +40,18 @@ public class ShadowDomElement {
         SearchContext shadowDom=driver.findElement(By.cssSelector("[id='shadow_host']")).getShadowRoot();
         System.out.println(shadowDom);
         shadowDom.findElement(By.cssSelector("[type='text']")).sendKeys("selenium");
+    }
+    @Test
+    public void handlingShadowDomusingJs(){
+        driver=new EdgeDriver();
+        driver.get("https://books-pwakit.appspot.com/");
+        driver.manage().window().maximize();
+
+       WebElement shadowRootElement= driver.findElement(By.cssSelector("[apptitle='BOOKS']"));
+        JavascriptExecutor javascriptExecutor=(JavascriptExecutor) driver;
+        //WebElement shadowRoot=(WebElement)javascriptExecutor.executeScript("return arguments[0].shadowRoot",shadowRootElement);
+        WebElement searchBox = (WebElement) javascriptExecutor.executeScript("return arguments[0].shadowRoot.querySelector('[aria-label='Search Books']');", shadowRootElement);
+        searchBox.sendKeys("selenium");
     }
 
 }
