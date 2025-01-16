@@ -29,6 +29,8 @@ public class FilteringAndIteratingCollection {
         productsList.stream()
                 .filter(p->p.price>25000)
                 .forEach(p->System.out.println(p.name));
+                //.forEach(System.out::println);
+
 
     }
 }
