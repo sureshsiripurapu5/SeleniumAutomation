@@ -1,0 +1,16 @@
+
+Non-terminal methods::
+filter()
+map()
+flatMap()
+distinct()
+limit()
+
+terminal-methods::
+collect()
+count()
+min()
+max()
+forEach()
+toArray()
+

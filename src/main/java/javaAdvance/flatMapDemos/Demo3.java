@@ -28,7 +28,10 @@ public class Demo3 {
         }*/
 
         //using flatmap
-        List<String>namesList=studentList.stream().flatMap(x->x.stream()).map(n->n.name).collect(Collectors.toList());
+        List<String>namesList=studentList.stream()
+                .flatMap(x->x.stream())
+                .map(n->n.name)
+                .collect(Collectors.toList());
         System.out.println(namesList);
 
 
