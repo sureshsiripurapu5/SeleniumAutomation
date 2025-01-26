@@ -6,12 +6,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 public class EcommerzLambdaTest {
+
     WebDriver driver;
     @Test
     public void selectingTheItemAndAddingToCart()  {
@@ -50,6 +52,8 @@ public class EcommerzLambdaTest {
 
         Assert.assertEquals(ipodText,cartItemName);
         Assert.assertEquals(ipodPrice,cartItemPrice);
+
+
 
         driver.quit();
 

@@ -1,21 +1,19 @@
-package allAboutSelenium.frameWork;
+package allAboutSelenium.frameWorkTask;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class SeleniumActions {
+public class SeleniumAct {
 
     WebDriver driver;
 
-    public SeleniumActions(WebDriver driver) {
+    public SeleniumAct(WebDriver driver) {
         this.driver=driver;
     }
 
-    public void SeleniumActions(WebDriver driver){
-        this.driver=driver;
-    }
+
 
     public void enterValue(WebElement element, String data){
         element.sendKeys(data);
@@ -41,10 +39,11 @@ public class SeleniumActions {
         return driver.findElement(by).getText();
     }
 
-    public void filterProducts(WebElement element,String value){
-        Select select=new Select(element);
+    public void selectByValue1(WebElement dropdown, String value) {
+        Select select = new Select(dropdown);
         select.selectByValue(value);
-
     }
+
+
 
 }

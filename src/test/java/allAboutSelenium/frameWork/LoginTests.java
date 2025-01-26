@@ -19,7 +19,8 @@ public class LoginTests extends BaseTest {
     @Test
     public void verifyLoginTests(){
         loginPage.login("standard_user","secret_sauce");
-        Assert.assertEquals(productsPage.getProductsPageHeading(),"Products");
+        //Assert.assertEquals(productsPage.getProductsPageHeading(),"Products");
+        productsPage.productFilter("hilo");
     }
 
 

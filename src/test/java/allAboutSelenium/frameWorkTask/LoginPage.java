@@ -1,14 +1,16 @@
-package allAboutSelenium.frameWork;
+package allAboutSelenium.frameWorkTask;
 
+import allAboutSelenium.frameWork.SeleniumActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
-
-    SeleniumActions seleniumActions;
+    SeleniumAct seleniumActions;
 
     public LoginPage(WebDriver driver){
-        seleniumActions=new SeleniumActions(driver);
+        seleniumActions=new SeleniumAct(driver);
+        PageFactory.initElements(driver,this);
 
     }
 
@@ -21,6 +23,4 @@ public class LoginPage {
         seleniumActions.enterValue(passwordBox,pasword);
         seleniumActions.clickOnElement(loginButton);
     }
-
-
 }
