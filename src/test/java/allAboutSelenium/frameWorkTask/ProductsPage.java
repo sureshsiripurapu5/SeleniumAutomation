@@ -34,6 +34,8 @@ public class ProductsPage {
     @FindBy(css = ".shopping_cart_link")
     WebElement cart;
 
+
+
     public String getHighestProductTitle(){
        return seleniumActions.getTextMessage(itemName.get(0));
     }

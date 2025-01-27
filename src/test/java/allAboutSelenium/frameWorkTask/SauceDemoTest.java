@@ -22,50 +22,62 @@ public class SauceDemoTest extends BaseTest{
         checkOutComplete=new CheckOutComplete(driver);
 
     }
+    String orderMsg="Thank you for your order!";
+    String title;
+    String price;
+    String cartProductTitle;
+    String cartProductPrice;
+    String checkOutTitle;
+    String checkOutPrice;
 
     @Test
-    public void test()  {
-        String orderMsg="Thank you for your order!";
+    public void verifyLoginTest() {
+        loginPage.login("standard_user", "secret_sauce");
 
-        loginPage.login("standard_user","secret_sauce");
-
-
+    }
+    @Test(dependsOnMethods = "verifyLoginTest")
+    public void verifyProductsPage() {
         productsPage.selectPriceFilter("hilo");
-        String title=productsPage.getHighestProductTitle();
-        String price= productsPage.getHighestProductPrice();
+        title = productsPage.getHighestProductTitle();
+        price = productsPage.getHighestProductPrice();
 
         productsPage.clickProductToCart();
         productsPage.clickCart();
+    }
+    @Test(dependsOnMethods = "verifyProductsPage")
+    public void verifyCartPage() {
 
+        cartProductTitle = cartPage.getCartProductTitle();
+        cartProductPrice = cartPage.getCartProductPrice();
 
-        String cartProductTitle=cartPage.getCartProductTitle();
-        String cartProductPrice=cartPage.getCartProductPrice();
-
-        Assert.assertEquals(title,cartProductTitle);
-        Assert.assertEquals(price,cartProductPrice);
+        Assert.assertEquals(title, cartProductTitle);
+        Assert.assertEquals(price, cartProductPrice);
 
         cartPage.clickOnCheckOutBtn();
+    }
+    @Test(dependsOnMethods = "verifyCartPage")
+    public void verifyCheckOutInformationPage() {
 
         checkOutPage.enterFirstName();
         checkOutPage.enterLastName();
         checkOutPage.enterPostalCode();
         checkOutPage.clickOncontinueButton();
+    }
+    @Test(dependsOnMethods = "verifyCheckOutInformationPage")
+    public void verifyingCheckOutOverViewPage() {
 
 
-        String checkOutTitle=checkOutOverViewPage.checkoutOverViewProductTitle();
-        String checkOutPrice=checkOutOverViewPage.checkOutOverViewProductPrice();
-        Assert.assertEquals(title,checkOutTitle);
-        Assert.assertEquals(price,checkOutPrice);
+        checkOutTitle = checkOutOverViewPage.checkoutOverViewProductTitle();
+        checkOutPrice = checkOutOverViewPage.checkOutOverViewProductPrice();
+        Assert.assertEquals(title, checkOutTitle);
+        Assert.assertEquals(price, checkOutPrice);
         checkOutOverViewPage.clickOnfinishButton();
+    }
+    @Test(dependsOnMethods = "verifyingCheckOutOverViewPage")
+    public void verifyingCheckOutSuccessMessage(){
 
         String checkOutSucessMsg=checkOutComplete.getSuccessMessage();
         Assert.assertEquals(checkOutSucessMsg,orderMsg);
-
-
-
-
-
-
 
     }
 }
