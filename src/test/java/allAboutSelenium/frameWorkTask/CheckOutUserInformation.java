@@ -39,6 +39,12 @@ public class CheckOutUserInformation {
         seleniumActions.enterValue(postalCode,"520008");
     }
 
+    public void setDetails(){
+        seleniumActions.enterValue(firstName,"suresh");
+        seleniumActions.enterValue(lastName,"siripurapu");
+        seleniumActions.enterValue(postalCode,"520008");
+    }
+
     public void clickOncontinueButton(){
         seleniumActions.clickOnElement(continueBtn);
     }

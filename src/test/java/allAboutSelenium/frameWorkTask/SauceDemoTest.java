@@ -58,9 +58,8 @@ public class SauceDemoTest extends BaseTest{
     @Test(dependsOnMethods = "verifyCartPage")
     public void verifyCheckOutInformationPage() {
 
-        checkOutPage.enterFirstName();
-        checkOutPage.enterLastName();
-        checkOutPage.enterPostalCode();
+
+        checkOutPage.setDetails();
         checkOutPage.clickOncontinueButton();
     }
     @Test(dependsOnMethods = "verifyCheckOutInformationPage")
@@ -76,8 +75,8 @@ public class SauceDemoTest extends BaseTest{
     @Test(dependsOnMethods = "verifyingCheckOutOverViewPage")
     public void verifyingCheckOutSuccessMessage(){
 
-        String checkOutSucessMsg=checkOutComplete.getSuccessMessage();
-        Assert.assertEquals(checkOutSucessMsg,orderMsg);
+        String checkOutSuccessMsg=checkOutComplete.getSuccessMessage();
+        Assert.assertEquals(checkOutSuccessMsg,orderMsg);
 
     }
 }
