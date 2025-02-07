@@ -8,10 +8,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 public class HandlingWebTables {
     WebDriver driver;
@@ -25,8 +24,6 @@ public class HandlingWebTables {
         driver.get("https://www.tutorialspoint.com/selenium/practice/webtables.php");
         driver.manage().window().maximize();
 
-        //td[@scope='row' and contains(text(),'A')]/parent::tr/td[not(a)]
-        //th[text()='First Name']/../../..//tbody/tr/td[1]
         String firstName="Cierra";
         List<WebElement> data=driver.findElements(By.xpath("//td[@scope='row' and contains(text(),'"+firstName+"')]/parent::tr/td[not(a)]"));
         List<String> tableData=new ArrayList<>();
@@ -47,10 +44,13 @@ public class HandlingWebTables {
         for (int i=0;i<firstNamesColum.size();i++){
             firstNamesData.add(firstNamesColum.get(i).getText().trim());
         }
+        //1.sorting the data using Collections.sort()
         Collections.sort(firstNamesData);
-        //System.out.println(firstNamesData);
+        System.out.println(firstNamesData);
+        //2.sorting the data and removing the duplicates using stream pipeline
         firstNamesData.stream()
                 .sorted()
+                .distinct()
                 .forEach(System.out::println);
     }
 
