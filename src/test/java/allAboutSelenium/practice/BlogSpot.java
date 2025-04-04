@@ -11,10 +11,10 @@ import org.testng.annotations.Test;
 
 public class BlogSpot {
     WebDriver driver;
-    @Test(invocationCount = 30)
+    @Test(invocationCount = 20)
     public void verifyBlogs() throws InterruptedException {
         driver=new ChromeDriver();
-        driver.get("https://how-to-learn-java.blogspot.com/2025/02/javascriptexecutor-in-selenium.html");
+        driver.get("https://how-to-learn-java.blogspot.com/2025/02/java-constructor.html");
         driver.manage().window().maximize();
         Thread.sleep(3000);
         WebElement element=driver.findElement(By.xpath("//a[normalize-space()='Report Abuse'] "));

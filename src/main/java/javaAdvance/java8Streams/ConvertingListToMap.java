@@ -27,6 +27,7 @@ public class ConvertingListToMap {
         productsList.add(new Product6(4,"Sony laptop",25000f));
         productsList.add(new Product6(5,"Apple laptop",900000f));
         productsList.add(new Product6(6,"Tuf laptop",35000f));
+        productsList.add(new Product6(7,"Tuf laptop",88888));
 
         Map<Integer,String> priceList=productsList.stream()
 
